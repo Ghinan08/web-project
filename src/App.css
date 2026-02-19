@@ -278,7 +278,7 @@ body {
 .program-meta li { display: flex; gap: 10px; align-items: center; }
 
 /* --- FOOTER --- */
-footer { background: #0f172a; color: #94a3b8; padding: 60px 0 40px 0; textAlign: center; fontSize: 0.9rem; borderTop: 1px solid #1e293b; }
+footer { background: #0f172a; color: #94a3b8; padding: 60px 0 40px 0; text-align: center; font-size: 0.9rem; border-top: 1px solid #1e293b; }
 
 
 /* =========================================
