@@ -1,0 +1,98 @@
+import { query } from './database.js';
+import { seedDatabase } from './seed.js';
+
+const schemaStatements = [
+  `CREATE TABLE IF NOT EXISTS users (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    email VARCHAR(190) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'user') NOT NULL DEFAULT 'user',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
+  `CREATE TABLE IF NOT EXISTS refresh_tokens (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT UNSIGNED NOT NULL,
+    token_hash VARCHAR(255) NOT NULL,
+    expires_at DATETIME NOT NULL,
+    revoked_at DATETIME NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_user_id (user_id),
+    INDEX idx_expires_at (expires_at)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
+  `CREATE TABLE IF NOT EXISTS programs (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(180) NOT NULL,
+    slug VARCHAR(220) NOT NULL UNIQUE,
+    summary TEXT NULL,
+    content LONGTEXT NULL,
+    image_url VARCHAR(500) NULL,
+    location VARCHAR(160) NULL,
+    event_date DATE NULL,
+    price DECIMAL(12,2) NULL,
+    published TINYINT(1) NOT NULL DEFAULT 1,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
+  `CREATE TABLE IF NOT EXISTS news (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(180) NOT NULL,
+    slug VARCHAR(220) NOT NULL UNIQUE,
+    summary TEXT NULL,
+    content LONGTEXT NULL,
+    image_url VARCHAR(500) NULL,
+    published TINYINT(1) NOT NULL DEFAULT 1,
+    published_at DATETIME NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
+  `CREATE TABLE IF NOT EXISTS testimonials (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(180) NOT NULL,
+    slug VARCHAR(220) NOT NULL UNIQUE,
+    summary TEXT NULL,
+    content LONGTEXT NULL,
+    image_url VARCHAR(500) NULL,
+    author_name VARCHAR(120) NULL,
+    author_role VARCHAR(120) NULL,
+    published TINYINT(1) NOT NULL DEFAULT 1,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
+  `CREATE TABLE IF NOT EXISTS store_items (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(180) NOT NULL,
+    slug VARCHAR(220) NOT NULL UNIQUE,
+    summary TEXT NULL,
+    content LONGTEXT NULL,
+    image_url VARCHAR(500) NULL,
+    price DECIMAL(12,2) NULL,
+    stock INT NULL,
+    published TINYINT(1) NOT NULL DEFAULT 1,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
+  `CREATE TABLE IF NOT EXISTS annual_reports (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(180) NOT NULL,
+    slug VARCHAR(220) NOT NULL UNIQUE,
+    summary TEXT NULL,
+    content LONGTEXT NULL,
+    image_url VARCHAR(500) NULL,
+    report_year SMALLINT NULL,
+    file_url VARCHAR(500) NULL,
+    published TINYINT(1) NOT NULL DEFAULT 1,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
+];
+
+export const bootstrapDatabase = async () => {
+  for (const sql of schemaStatements) {
+    await query(sql);
+  }
+
+  await seedDatabase();
+};

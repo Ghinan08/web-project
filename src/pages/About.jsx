@@ -1,6 +1,20 @@
 import React from 'react';
 import './About.css';
 
+const CheckCircleIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M8 12.5L10.8 15L16 9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const IconItem = ({ children }) => (
+  <li>
+    <span className="icon-box"><CheckCircleIcon /></span>
+    {children}
+  </li>
+);
+
 const About = () => {
   return (
     <div className="about-page">
@@ -80,11 +94,11 @@ const About = () => {
             <div>
                 <h3 className="mb-4">Aktivitas Yayasan</h3>
                 <ul className="icon-list">
-                    <li><span className="icon-box">📖</span> Program Sekolah Penggerak Kober Imanda</li>
-                    <li><span className="icon-box">🚗</span> HIMPAUDI Kecamatan Andir</li>
-                    <li><span className="icon-box">🏠</span> Pokja PAUD HIBER Kota Bandung</li>
-                    <li><span className="icon-box">👤</span> Pokja Bunda PAUD Kecamatan Andir</li>
-                    <li><span className="icon-box">🌳</span> Zona Wilayah Mutu PNF Wilayah Zona A</li>
+                  <IconItem>Program Sekolah Penggerak Kober Imanda</IconItem>
+                  <IconItem>HIMPAUDI Kecamatan Andir</IconItem>
+                  <IconItem>Pokja PAUD HIBER Kota Bandung</IconItem>
+                  <IconItem>Pokja Bunda PAUD Kecamatan Andir</IconItem>
+                  <IconItem>Zona Wilayah Mutu PNF Wilayah Zona A</IconItem>
                 </ul>
             </div>
 
@@ -92,10 +106,10 @@ const About = () => {
             <div>
                 <h3 className="mb-4">Prestasi Yayasan</h3>
                 <ul className="icon-list">
-                    <li><span className="icon-box">🏆</span> Pemenang Ke-2 Apresiasi Kepala Sekolah Kategori Kober/SPS (2015)</li>
-                    <li><span className="icon-box">🌟</span> Kepala Sekolah Percontohan PAUD HIBER (2019)</li>
-                    <li><span className="icon-box">🏫</span> Kepala Sekolah Percontohan PAUD Inklusi (2019)</li>
-                    <li><span className="icon-box">📜</span> Nominator Penerima Penghargaan Anugerah Widya Pratama (2019)</li>
+                  <IconItem>Pemenang Ke-2 Apresiasi Kepala Sekolah Kategori Kober/SPS (2015)</IconItem>
+                  <IconItem>Kepala Sekolah Percontohan PAUD HIBER (2019)</IconItem>
+                  <IconItem>Kepala Sekolah Percontohan PAUD Inklusi (2019)</IconItem>
+                  <IconItem>Nominator Penerima Penghargaan Anugerah Widya Pratama (2019)</IconItem>
                 </ul>
             </div>
         </div>
