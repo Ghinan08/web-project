@@ -1,2 +1,181 @@
-import React from 'react';
-import './About.css';
+/* =========================================
+   ABOUT PAGE STYLES (THEME: SEAMLESS BLUE & GOLD)
+========================================= */
+
+/* --- BACKGROUND HALAMAN PENUH (GRADASI RAKSASA) --- */
+.about-page {
+    background: linear-gradient(
+        to bottom, 
+        #0f172a 0%,      
+        #1e3a8a 15%,     
+        #92400e 35%,     
+        #eab308 50%,     
+        #92400e 70%,     
+        #1e3a8a 85%,     
+        #0f172a 100%     
+    ) !important; 
+    min-height: 100vh;
+    padding-bottom: 40px; 
+}
+
+/* --- HEADER SECTION --- */
+.about-header {
+    background: transparent !important; 
+    padding: 160px 20px 180px 20px; 
+    color: white;
+    position: relative;
+}
+
+.about-header h1 { 
+    font-size: 3.5rem; 
+    margin-bottom: 15px; 
+    font-weight: 800; 
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+    letter-spacing: -1px;
+}
+
+.about-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* --- MAIN CONTENT WRAPPER (KARTU PUTIH) --- */
+.about-content-wrapper {
+    background: white;
+    border-radius: 32px; 
+    
+    /* PERBAIKAN 1: Padding atas diperbesar agar elemen di dalamnya tidak nempel ke ujung atas di layar 4K */
+    padding: 80px 60px; 
+    margin-top: -100px; 
+    
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5); 
+    position: relative;
+    z-index: 10;
+    margin-bottom: 40px;
+    border: 1px solid #f1f5f9;
+}
+
+
+/* --- LEGAL BOX (AKSEN EMAS) --- */
+.legal-box {
+    border: 1px solid #fde047; 
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 80px;
+    background: linear-gradient(to right, #fffbeb, #ffffff); 
+    box-shadow: 0 10px 30px -10px rgba(234, 179, 8, 0.15);
+}
+.legal-subtitle { font-size: 0.85rem; font-weight: 800; color: #64748b; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase; }
+.legal-number { color: #b45309; font-weight: 800; font-size: 1.6rem; margin-bottom: 15px; }
+.legal-desc { font-size: 0.95rem; color: #475569; font-weight: 500; }
+
+
+/* --- SECTION ROW (GAMBAR & TEKS) --- */
+.about-section-row { display: flex; gap: 60px; align-items: center; margin-bottom: 100px; }
+.about-img-container { flex: 1; }
+.about-img-container img { width: 100%; border-radius: 24px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15); border: 4px solid #f8fafc; transition: transform 0.3s ease; }
+.about-img-container img:hover { transform: translateY(-5px); }
+.about-text-content { flex: 1; }
+
+/* PERBAIKAN 1: Judul H2 dan Garis Kuning Bawahnya */
+.about-text-content h2 { 
+    font-size: 2.4rem; 
+    color: #0f172a; 
+    margin-bottom: 0; /* Margin dihilangkan dari teks */
+}
+
+.about-text-content h2::after { 
+    content: ''; 
+    display: block; /* MENGUBAH GARIS MENJADI BLOK FISIK */
+    width: 80px; 
+    height: 5px; 
+    background: #eab308; 
+    margin-top: 18px; /* Jarak PASTI 18px dari teks di atasnya */
+    margin-bottom: 24px; /* Jarak PASTI 24px dari paragraf di bawahnya */
+    border-radius: 5px; 
+}
+
+.about-text-content p { line-height: 1.8; color: #475569; font-size: 1.05rem; margin-top: 20px; }
+
+
+/* --- TIMELINE (JEJAK LANGKAH) --- */
+.timeline-section { margin-bottom: 100px; }
+.timeline-section h2 { color: #0f172a; font-size: 2.2rem; }
+.timeline { position: relative; max-width: 600px; margin: 50px auto 0; border-left: 4px solid #e2e8f0; padding-left: 40px; }
+.timeline-item { position: relative; margin-bottom: 50px; }
+.timeline-dot { position: absolute; left: -52px; top: 4px; width: 20px; height: 20px; background-color: #eab308; border: 4px solid white; border-radius: 50%; box-shadow: 0 0 0 4px #fef08a; }
+.timeline-content h4 { font-weight: 800; color: #1e3a8a; margin-bottom: 8px; font-size: 1.25rem; }
+.timeline-content span { font-size: 0.85rem; color: #64748b; font-weight: 700; background: #f1f5f9; padding: 6px 14px; border-radius: 20px; }
+
+
+/* --- ICON LISTS (AKTIVITAS & PRESTASI) --- */
+.lists-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.lists-grid h3 { color: #0f172a; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; font-size: 1.5rem; }
+.icon-list { list-style: none; display: flex; flex-direction: column; gap: 20px; margin-top: 24px;}
+
+/* PERBAIKAN 2: Kotak "Zona Wilayah" dan item lainnya */
+.icon-list li { 
+    display: flex; 
+    align-items: center; /* Sejajarkan ikon dan teks tepat di tengah vertikal */
+    gap: 20px; 
+    background: white; 
+    
+    /* BANTALAN SUPER AMAN */
+    padding: 20px 24px; 
+    min-height: 85px; /* Mengunci tinggi minimal agar kotak tidak pernah gepeng/menempel */
+    
+    border-radius: 16px; 
+    color: #334155; 
+    font-size: 1.05rem; 
+    line-height: 1.6; /* Memberi ruang napas kalau teksnya panjang sampai 2 baris */
+    border: 1px solid #e2e8f0; 
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); 
+    transition: all 0.3s ease; 
+    word-break: break-word; /* Mencegah teks tembus ke luar garis di layar aneh */
+}
+.icon-list li:hover { 
+    border-color: #fbbf24; 
+    box-shadow: 0 10px 20px -5px rgba(251, 191, 36, 0.15); 
+    transform: translateY(-3px); 
+}
+
+.icon-box { 
+    color: #b45309; 
+    font-size: 1.2rem; 
+    background: #fffbeb; 
+    width: 45px; height: 45px; 
+    display: flex; align-items: center; justify-content: center; 
+    border-radius: 12px; 
+    flex-shrink: 0; /* Mengunci ikon agar tidak ikut mengecil saat teksnya kepanjangan */
+}
+
+
+/* =========================================
+   MEDIA QUERIES (RESPONSIF ABOUT PAGE)
+========================================= */
+@media (max-width: 992px) {
+    .about-content-wrapper { padding: 50px 40px; }
+    .about-section-row { gap: 40px; }
+    .lists-grid { gap: 40px; }
+}
+@media (max-width: 768px) {
+    .about-header { padding: 120px 20px 140px 20px; }
+    .about-header h1 { font-size: 2.5rem; }
+    .about-content-wrapper { padding: 40px 20px; margin-top: -60px; border-radius: 24px;}
+    .legal-box { padding: 25px 20px; }
+    .legal-number { font-size: 1.3rem; word-break: break-word; }
+    .about-section-row { flex-direction: column; gap: 40px; margin-bottom: 60px;}
+    .about-text-content h2 { font-size: 1.8rem; }
+    .lists-grid { grid-template-columns: 1fr; gap: 40px;}
+    .timeline { padding-left: 25px; }
+    .timeline-dot { left: -37px; } 
+    .icon-list li { padding: 16px; } /* Kembalikan padding normal di HP */
+}
+@media (max-width: 480px) {
+    .about-header h1 { font-size: 2rem; }
+    .legal-number { font-size: 1.1rem; }
+    .timeline-content h4 { font-size: 1.1rem; }
+}
