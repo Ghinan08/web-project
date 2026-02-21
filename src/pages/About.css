@@ -1,5 +1,6 @@
 /* =========================================
    ABOUT PAGE STYLES (THEME: SEAMLESS BLUE & GOLD)
+========================================= */
 
 /* --- BACKGROUND HALAMAN PENUH (GRADASI RAKSASA) --- */
 .about-page {
@@ -152,8 +153,8 @@
 }
 
 
-/* =========================================
-   MEDIA QUERIES (RESPONSIF ABOUT PAGE)
+ /* =========================================
+   MEDIA QUERIES (RESPONSIF ABOUT PAGE) */
 @media (max-width: 992px) {
     .about-content-wrapper { padding: 50px 40px; }
     .about-section-row { gap: 40px; }
@@ -170,7 +171,7 @@
     .lists-grid { grid-template-columns: 1fr; gap: 40px;}
     .timeline { padding-left: 25px; }
     .timeline-dot { left: -37px; } 
-    .icon-list li { padding: 16px; } /* Kembalikan padding normal di HP */
+    .icon-list li { padding: 16px; } 
 }
 @media (max-width: 480px) {
     .about-header h1 { font-size: 2rem; }
@@ -178,4 +179,4 @@
     .timeline-content h4 { font-size: 1.1rem; }
 .about-page {
 	width: 100%;
-}
+}}
