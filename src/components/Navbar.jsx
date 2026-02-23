@@ -31,27 +31,27 @@ const Navbar = () => {
         <ul className="nav-menu">
           <li><NavLink to="/" className="nav-link">Home</NavLink></li>
           
-          {/* DROPDOWN KITA YANG SEMPAT HILANG */}
+          {/* DROPDOWN  */}
           <li className="nav-item-dropdown">
             <span className="nav-link dropdown-trigger" style={{ cursor: 'pointer' }}>
               Tentang Kami <span className="chevron-down">▼</span>
             </span>
             <ul className="dropdown-menu">
               <li><Link to="/about">Tentang Sankara</Link></li>
-              <li><Link to="/teams">Tim Kami</Link></li>
+              <li><Link to="/team">Tim Kami</Link></li>
               <li><Link to="/vision-and-mission">Vsis & Misi</Link></li>
               <li><Link to="/reports">Laporan Tahunan</Link></li>
               <li><Link to="/testimonials">Testimoni</Link></li>
             </ul>
           </li>
 
-          {/* LINK BUATAN TEMANMU */}
+          {/* LINK */}
           <li><NavLink to="/programs" className="nav-link">Program</NavLink></li>
           <li><NavLink to="/news" className="nav-link">Berita</NavLink></li>
           <li><NavLink to="/store" className="nav-link">Store</NavLink></li>
         </ul>
 
-        {/* DESKTOP BUTTONS (Link Auth dari temanmu) */}
+        {/* DESKTOP BUTTONS */}
         <div className="nav-buttons">
              <Link to="/login" className="btn btn-outline-white" style={{padding: '8px 24px', textDecoration: 'none'}}>Masuk</Link>
              <Link to="/register" className="btn btn-primary" style={{padding: '8px 24px', textDecoration: 'none'}}>Daftar</Link>
@@ -90,13 +90,15 @@ const Navbar = () => {
                 }}>
                 <div style={{padding: '15px', display: 'flex', flexDirection: 'column', gap: '15px'}}>
                   <Link to="/about" className="nav-link" style={{fontSize: '1rem'}} onClick={() => setIsOpen(false)}>Tentang Sankara</Link>
+                  <Link to="/team" className="nav-link" style={{fontSize: '1rem'}} onClick={() => setIsOpen(false)}>Tim Kami</Link>
+                  <Link to="/vision-and-mission" className="nav-link" style={{fontSize: '1rem'}} onClick={() => setIsOpen(false)}>Vsis & Misi</Link>
                   <Link to="/testimonials" className="nav-link" style={{fontSize: '1rem'}} onClick={() => setIsOpen(false)}>Testimoni</Link>
                   <Link to="/reports" className="nav-link" style={{fontSize: '1rem'}} onClick={() => setIsOpen(false)}>Laporan Tahunan</Link>
                 </div>
              </div>
            </div>
 
-           {/* LINK MOBILE BUATAN TEMANMU */}
+           {/* LINK MOBILE */}
            <NavLink to="/programs" className="nav-link" style={{fontSize: '1.2rem'}} onClick={() => setIsOpen(false)}>Program</NavLink>
            <NavLink to="/news" className="nav-link" style={{fontSize: '1.2rem'}} onClick={() => setIsOpen(false)}>Berita</NavLink>
            <NavLink to="/store" className="nav-link" style={{fontSize: '1.2rem'}} onClick={() => setIsOpen(false)}>Store</NavLink>

@@ -18,29 +18,22 @@ const IconItem = ({ children }) => (
 const About = () => {
   return (
     <div className="about-page">
-      {/* Header Section */}
       <section className="about-header text-center">
         <h1>Tentang Sankara</h1>
         <p>Mengenal lebih dekat fondasi dan perjalanan kami.</p>
       </section>
 
-      {/* Content Wrapper (Kartu Putih Besar) */}
       <div className="container about-content-wrapper">
         
-        {/* Legal Box */}
         <div className="legal-box text-center">
           <p className="legal-subtitle">KEPUTUSAN MENTERI HUKUM DAN HAK ASASI MANUSIA REPUBLIK INDONESIA</p>
           <h3 className="legal-number">NOMOR AHU-0031749.AH.01.04.Tahun 2016</h3>
           <p className="legal-desc">TENTANG PENGESAHAN PENDIRIAN BADAN HUKUM YAYASAN IMANDA</p>
         </div>
 
-        {/* Jembatan Kebaikan (Image + Text) */}
         <div className="about-section-row">
           <div className="about-img-container">
-            <img 
-              src="https://images.unsplash.com/photo-1542810634-71277d95dcbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-              alt="Anak-anak Sankara" 
-            />
+            <img src="/img/social.png" alt="Ilustrasi Sosial" />
           </div>
           <div className="about-text-content">
             <h2>Jembatan Kebaikan Anda</h2>
@@ -53,7 +46,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Jejak Langkah (Timeline) */}
         <div className="timeline-section">
           <h2 className="text-center mb-5">Jejak Langkah Yayasan Imanda</h2>
           <div className="timeline">
@@ -88,9 +80,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Lists Grid (Aktivitas & Prestasi) */}
         <div className="lists-grid">
-            {/* Kolom Kiri */}
             <div>
                 <h3 className="mb-4">Aktivitas Yayasan</h3>
                 <ul className="icon-list">
@@ -102,7 +92,6 @@ const About = () => {
                 </ul>
             </div>
 
-            {/* Kolom Kanan */}
             <div>
                 <h3 className="mb-4">Prestasi Yayasan</h3>
                 <ul className="icon-list">

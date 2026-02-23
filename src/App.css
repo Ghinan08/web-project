@@ -1,8 +1,6 @@
-/* --- GLOBAL RESET & TYPOGRAPHY --- */
-/* PERBAIKAN UTAMA: Mencegah scroll ke samping di SEMUA device */
 html, body {
   max-width: 100%;
-  overflow-x: hidden; /* Kunci agar tidak ada yang "bocor" ke kanan */
+  overflow-x: hidden; 
   scroll-behavior: smooth;
 }
 
@@ -14,27 +12,24 @@ html, body {
 }
 
 body {
-  /* Gradasi Biru Gelap Profesional */
   background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
   color: #334155;
   min-height: 100vh;
-  padding-top: 80px; /* Space for fixed navbar */
+  padding-top: 80px; 
 }
 
 .container {
-  width: 100%; /* Pastikan container tidak kaku */
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px; /* Padding standar di kiri kanan */
+  padding: 0 24px; 
 }
 
-/* Utility Classes */
 .text-primary { color: #15803d; }
 .font-bold { font-weight: 700; }
 .text-center { text-align: center; }
 .mb-2 { margin-bottom: 8px; }
 
-/* Buttons Global Style */
 .btn {
   padding: 10px 24px;
   border-radius: 50px;
@@ -47,7 +42,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  white-space: nowrap; /* Mencegah teks tombol turun baris */
+  white-space: nowrap; 
 }
 .btn-primary { background-color: white; color: #0f172a; }
 .btn-primary:hover { background-color: #f1f5f9; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,255,255,0.2);}
@@ -58,7 +53,6 @@ body {
 .btn-full { width: 100%; }
 
 
-/* --- NAVBAR PRO (FIXED) --- */
 /* .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -92,17 +86,14 @@ body {
 } */
 
 
-/* --- DROPDOWN MENU STYLING --- */
 
-/* Container item navbar yang punya dropdown */
 .nav-item-dropdown {
-  position: relative; /* Penting agar dropdown muncul relatif terhadap item ini */
+  position: relative; 
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-/* Panah kecil (Chevron) */
 .chevron-down {
   font-size: 0.6rem;
   margin-left: 6px;
@@ -111,30 +102,27 @@ body {
   vertical-align: middle;
 }
 
-/* Efek putar panah saat hover */
 .nav-item-dropdown:hover .chevron-down {
   transform: rotate(180deg);
 }
 
-/* Kotak Dropdown (Awalnya Sembunyi) */
 .dropdown-menu {
   position: absolute;
-  top: 100%; /* Muncul tepat di bawah navbar */
+  top: 100%; 
   left: 0;
   background-color: white;
-  min-width: 220px; /* Lebar kotak dropdown */
+  min-width: 220px;
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15); /* Shadow halus */
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
   padding: 12px 0;
   list-style: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(20px); /* Efek slide up dari bawah */
+  transform: translateY(20px); 
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   z-index: 1100;
 }
 
-/* Panah kecil di atas kotak dropdown (segitiga putih) - Opsional Pemanis */
 .dropdown-menu::before {
   content: '';
   position: absolute;
@@ -145,14 +133,12 @@ body {
   border-radius: 2px;
 }
 
-/* Tampilkan Dropdown saat Hover */
 .nav-item-dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(15px); /* Posisi akhir (sedikit berjarak dari navbar) */
+  transform: translateY(15px); 
 }
 
-/* Style Item dalam Dropdown */
 .dropdown-menu li {
   display: block;
 }
@@ -160,34 +146,25 @@ body {
 .dropdown-menu li a {
   display: block;
   padding: 10px 24px;
-  color: #4b5563; /* Abu-abu gelap */
+  color: #4b5563; 
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.2s;
 }
 
-/* Hover effect per item */
 .dropdown-menu li a:hover {
-  background-color: #f3f4f6; /* Abu-abu muda */
-  color: #15803d; /* Hijau Sankara */
-  padding-left: 28px; /* Efek geser kanan sedikit */
+  background-color: #f3f4f6; 
+  color: #15803d;
+  padding-left: 28px; 
 }
 
-
-
-
-
-
-/* Desktop Menu */
 .nav-menu { display: flex; align-items: center; gap: 32px; list-style: none; }
 .nav-link { color: #cbd5e1; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: 0.3s; position: relative; }
 .nav-link:hover { color: white; }
 .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: white; transition: width 0.3s; }
 .nav-link:hover::after { width: 100%; }
 .nav-buttons { display: flex; gap: 12px; align-items: center; }
-
-/* Hamburger Icon */
 .hamburger { display: none; cursor: pointer; z-index: 1002; width: 30px; height: 20px; position: relative; }
 .bar { display: block; width: 100%; height: 2px; background-color: white; border-radius: 2px; position: absolute; transition: all 0.3s ease-in-out; }
 .bar:nth-child(1) { top: 0; }
@@ -196,8 +173,6 @@ body {
 .hamburger.active .bar:nth-child(1) { transform: rotate(45deg); top: 9px; }
 .hamburger.active .bar:nth-child(2) { opacity: 0; }
 .hamburger.active .bar:nth-child(3) { transform: rotate(-45deg); top: 9px; }
-
-/* Mobile Menu Overlay */
 .mobile-menu-overlay {
   position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
   background: #0f172a;
@@ -207,7 +182,6 @@ body {
 .mobile-menu-overlay.active { right: 0; }
 
 
-/* --- HERO SECTION --- */
 .hero {
   display: flex;
   align-items: center;
@@ -215,9 +189,9 @@ body {
   padding: 80px 0 120px 0;
   gap: 60px;
   position: relative;
-  overflow: hidden; /* Mencegah gambar miring keluar container */
+  overflow: hidden; 
 }
-.hero-content { flex: 1; z-index: 2; min-width: 0; /* Mencegah flex item overflow */ }
+.hero-content { flex: 1; z-index: 2; min-width: 0;}
 .hero h1 { font-size: 3.8rem; line-height: 1.1; color: white; margin-bottom: 24px; letter-spacing: -1px; }
 .hero p { color: #cbd5e1; font-size: 1.15rem; line-height: 1.6; margin-bottom: 40px; max-width: 540px; }
 .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -226,7 +200,6 @@ body {
 .main-img:hover { transform: rotate(0) scale(1.02); }
 
 
-/* --- WHITE SECTION WRAPPER --- */
 .white-section-wrapper {
     background-color: #f8fafc;
     border-radius: 50px 50px 0 0;
@@ -234,34 +207,28 @@ body {
     position: relative;
     z-index: 10;
     padding-bottom: 80px;
-    /* Tambahan keamanan agar wrapper ini tidak bocor */
     width: 100%;
     overflow: hidden;
 }
 
 
-/* --- LEADERBOARD & STATS --- */
 .leaderboard-section { padding-top: 80px; padding-bottom: 60px; }
 .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 60px; }
 .stat-card { background: white; padding: 30px; border-radius: 24px; box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05); border: 1px solid #f1f5f9; text-align: center; transition: transform 0.3s; }
 .stat-card:hover { transform: translateY(-5px); }
 .stat-value { font-size: 2.5rem; font-weight: 800; color: #15803d; margin-top: 5px; }
-/* Ranking Table Style */
 .ranking-card { background: white; border-radius: 24px; padding: 10px; border: 1px solid #f1f5f9; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); overflow-x: auto; /* Jaga-jaga kalau tabel kepanjangan */ }
 .rank-row { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-radius: 16px; transition: 0.2s; white-space: nowrap; /* Mencegah teks turun baris di tabel */ }
 .rank-row:hover { background-color: #f8fafc; }
 .rank-badge { width: 36px; height: 36px; background: #fbbf24; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; box-shadow: 0 4px 10px rgba(251, 191, 36, 0.4); flex-shrink: 0; }
 
 
-/* --- PROGRAMS SECTION --- */
 .programs-section { padding-top: 100px; }
 .section-header { margin-bottom: 50px; display: flex; justify-content: space-between; align-items: flex-end; }
 .section-header h2 { font-size: 2.2rem; margin-bottom: 10px; color: #0f172a; }
 
-/* PERBAIKAN VITAL DISINI UNTUK HP KECIL */
 .programs-grid {
   display: grid;
-  /* Mengubah minmax dari 340px menjadi 280px agar muat di HP kecil */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
 }
@@ -277,66 +244,54 @@ body {
 .program-meta { list-style: none; margin-bottom: 24px; color: #64748b; font-size: 0.95rem; display: flex; flex-direction: column; gap: 10px; }
 .program-meta li { display: flex; gap: 10px; align-items: center; }
 
-/* --- FOOTER --- */
 footer { background: #0f172a; color: #94a3b8; padding: 60px 0 40px 0; text-align: center; font-size: 0.9rem; border-top: 1px solid #1e293b; }
 
 
-/* =========================================
-   MEDIA QUERIES (RESPONSIF TOTAL)
-========================================= */
 
-/* Laptop Standar (max-width: 1200px) */
 @media (max-width: 1200px) {
     .hero h1 { font-size: 3.2rem; }
 }
 
-/* Laptop Kecil / Tablet Landscape (max-width: 1024px) */
-/* PERBAIKAN UNTUK TAMPILAN "MEPET" DI LAPTOP */
+
 @media (max-width: 1024px) {
-  .container { padding: 30px 30px; } /* Menambah padding kiri-kanan agar tidak terlalu mepet layar */
+  .container { padding: 30px 30px; }
   .hero-content { padding-bottom: 50px ;}
-  .hero { gap: 40px; } /* Mengurangi sedikit jarak antar teks dan gambar hero */
+  .hero { gap: 40px; } 
   .hero h1 { font-size: 2.8rem; }
   .stats-grid { gap: 20px; }
   .stat-card { padding: 20px; }
   .stat-value { font-size: 2rem; }
 }
 
-/* Tablet Portrait (max-width: 820px) */
+
 @media (max-width: 820px) {
-    .nav-menu { gap: 20px; } /* Merapatkan menu navbar sedikit */
+    .nav-menu { gap: 20px; } 
     .hero { padding: 60px 0 100px 0; }
-    .main-img { transform: rotate(0); } /* Gambar lurus di tablet agar rapi */
+    .main-img { transform: rotate(0); } 
 }
 
 
-/* Mobile Landscape & Tablet Kecil (max-width: 768px) */
-/* TITIK PERUBAHAN DRASTIS KE LAYOUT MOBILE */
+
 @media (max-width: 768px) {
-  /* Navbar jadi Hamburger */
   .nav-menu, .nav-buttons { display: none; }
   .hamburger { display: block; }
 
-  /* Hero Layout Tumpuk */
   .hero { flex-direction: column-reverse; text-align: center; padding-top: 40px; gap: 30px; }
   .hero h1 { font-size: 2.5rem; }
   .hero p { margin: 0 auto 30px auto; }
   .hero-buttons {padding: 14px 60px;  justify-content: center; flex-direction: column; width: 100%;  }
-  .btn { width: 100%; padding: 14px 14px;  } /* Tombol jadi full width */
+  .btn { width: 100%; padding: 14px 14px;  } 
   .main-img { max-height: 350px; object-fit: cover; }
 
-  /* White Section Adjustments */
   .white-section-wrapper { border-radius: 30px 30px 0 0; margin-top: -30px; }
   .leaderboard-section { padding-top: 50px; }
-  .stats-grid { grid-template-columns: 1fr; gap: 16px; } /* Stats jadi 1 kolom */
+  .stats-grid { grid-template-columns: 1fr; gap: 16px; } 
 
-  /* Tabel Ranking jadi Card View di Mobile agar tidak bocor */
   .rank-row { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; position: relative; padding-left: 70px; white-space: normal; }
   .rank-badge { position: absolute; top: 20px; left: 20px; }
   .rank-row > div:nth-child(2) { width: 100%; }
   .rank-row > div:last-child { align-self: flex-start; margin-top: 5px; }
 
-  /* Programs Adjustments */
   .programs-section { padding-top: 60px; }
   .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
   .section-header .btn-link { align-self: flex-start; }
@@ -344,24 +299,19 @@ footer { background: #0f172a; color: #94a3b8; padding: 60px 0 40px 0; text-align
 }
 
 
-/* Mobile Kecil (max-width: 480px) */
-/* PERBAIKAN UNTUK HP SEUKURAN IPHONE SE/ANDROID KECIL */
 @media (max-width: 480px) {
-  .container { padding: 25px 30px; } /* Padding diperkecil di HP kecil */
+  .container { padding: 25px 30px; } 
   .hero h1 { font-size: 2rem; }
   .hero-content { padding-bottom: 25px ;}
 
 .hero-buttons { justify-content: center; flex-direction: column; width: 100%; gap: 12px; }
-  /* Memastikan grid program jadi 1 kolom penuh di HP kecil */
   .programs-grid { grid-template-columns: 1fr; }
 
-  /* Merapikan card program di layar sempit */
   .program-img-header { height: 200px; }
   .program-content { padding: 20px; }
   .program-title { font-size: 1.1rem; }
   .program-meta { font-size: 0.85rem; }
   
-  /* Footer adjustments */
   footer { padding: 40px 0 30px 0; }
 }
 
